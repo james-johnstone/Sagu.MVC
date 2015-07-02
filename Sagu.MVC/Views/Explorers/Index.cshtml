@@ -1,0 +1,38 @@
+﻿@model  Sagu.MVC.Models.ExplorersViewModel
+
+@{
+    ViewBag.Title = "Explorers";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Explored Areas
+        </th>
+    </tr>
+
+@foreach (var item in Model.Explorers) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.Display(item.ExploredAreas.Count().ToString())
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "View", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
