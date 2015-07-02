@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ExplorersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -169,6 +170,8 @@
     </Compile>
     <Compile Include="Helpers\SaguClient.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Areas\AreasViewModel.cs" />
+    <Compile Include="Models\Areas\AreaViewModel.cs" />
     <Compile Include="Models\Explorers\ExplorersViewModel.cs" />
     <Compile Include="Models\Explorers\ExplorerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -234,6 +237,11 @@
     <Content Include="Views\Explorers\View.cshtml" />
     <Content Include="Views\Explorers\Create.cshtml" />
     <Content Include="Views\Explorers\Edit.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\View.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

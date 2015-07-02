@@ -29,5 +29,7 @@ namespace Sagu.MVC.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Sagu.DTO.Area> Areas { get; set; }
     }
 }
