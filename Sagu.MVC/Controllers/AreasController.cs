@@ -112,14 +112,21 @@ namespace Sagu.MVC.Controllers
         // POST: Areas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Guid id, Area area)
+        public async Task<ActionResult> Edit(Guid id, Area area, HttpPostedFileBase upload)
         {
             try
             {
+                var formData = new MultipartFormDataContent();
                 var json = JsonConvert.SerializeObject(area);
 
-                var response = await saguClient.PutAsync("api/areas",
-                                        new StringContent(json, Encoding.Unicode, "application/json"));
+                formData.Add(new StringContent(json, Encoding.Unicode, "application/json"));
+
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    formData.Add(new StreamContent(upload.InputStream), upload.FileName, upload.FileName);
+                }
+
+                var response = await saguClient.PutAsync("api/areas", formData);
 
                 if (response.IsSuccessStatusCode)
                     return RedirectToAction("Index");
