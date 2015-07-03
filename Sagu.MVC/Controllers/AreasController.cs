@@ -12,6 +12,7 @@ using Sagu.MVC.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using System.IO;
 
 namespace Sagu.MVC.Controllers
 {
@@ -61,27 +62,37 @@ namespace Sagu.MVC.Controllers
         // POST: Areas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Area area)
+        public async Task<ActionResult> Create(Area area, HttpPostedFileBase upload)
         {
             try
-            {
+            {                
                 area.Id = Guid.NewGuid();
+
+                var formData = new MultipartFormDataContent();
                 var json = JsonConvert.SerializeObject(area);
 
-                var response = await saguClient.PostAsync("api/areas",
-                                        new StringContent(json, Encoding.Unicode, "application/json"));
+                formData.Add(new StringContent(json, Encoding.Unicode, "application/json"));
+
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    formData.Add(new StreamContent(upload.InputStream), upload.FileName, upload.FileName);
+                }
+
+                var response = await saguClient.PostAsync("api/areas", formData);
 
                 if (response.IsSuccessStatusCode)
+                {
                     return RedirectToAction("Index");
+                }
                 else
-                    return Content("An error occurred, status code " + response.StatusCode);
+                    return Content("An error occurred, status code " + response.ReasonPhrase);
             }
             catch
             {
                 return Content("An error occurred.");
             }
         }
-
+        
         // GET: Areas/Edit/5
         public async Task<ActionResult> Edit(Guid id)
         {
