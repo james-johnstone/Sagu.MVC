@@ -11,6 +11,7 @@ namespace Sagu.MVC.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Size { get; set; }
+        public int Order { get; set; }
         public Sagu.DTO.AreaImage Image { get; set; }
     }
 }

@@ -17,6 +17,9 @@
         <th>
             Size
         </th>
+        <th>
+            Order
+        </th>
         <th></th>
         <th></th>
     </tr>
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order)
             </td>
             <td>
                 @if (item.Image != null)
