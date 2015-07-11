@@ -24,7 +24,8 @@ namespace Sagu.MVC
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/bower_components/bootstrap/dist/css/bootstrap.css",
+                      "~/Content/Styles.css",
                       "~/Content/site.css"));
         }
     }
