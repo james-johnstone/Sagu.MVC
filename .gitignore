@@ -5,6 +5,8 @@ ls
 
 # Packages
 packages/
+node_modules/
+bower_components/
 
 # Log & Bak files
 *.[Ll]og
