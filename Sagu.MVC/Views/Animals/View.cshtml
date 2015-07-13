@@ -1,0 +1,58 @@
+﻿@model Sagu.MVC.Models.AnimalViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Animal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUnique)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUnique)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EncounterRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EncounterRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

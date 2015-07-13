@@ -160,6 +160,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AnimalsController.cs" />
+    <Compile Include="Models\Creatures\AnimalsViewModel.cs" />
+    <Compile Include="Models\Creatures\AnimalViewModel.cs" />
     <Compile Include="Views\Shared\AccountController.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ExplorersController.cs" />
@@ -253,6 +256,10 @@
     <Content Include="Views\Areas\View.cshtml" />
     <Content Include="Views\Areas\Edit.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Animals\Edit.cshtml" />
+    <Content Include="Views\Animals\Delete.cshtml" />
+    <Content Include="Views\Animals\View.cshtml" />
+    <Content Include="Views\Animals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
